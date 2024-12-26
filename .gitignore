@@ -1,0 +1,19 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Provider binaries and lock files
+.terraform/
+.terraform.lock.hcl
+
+# Logs and debug files
+*.log
+
+# Temporary or editor-specific files
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Ignore specific Terraform modules and generated files
+AWS_Infra/.terraform/
