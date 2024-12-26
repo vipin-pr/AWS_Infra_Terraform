@@ -40,6 +40,7 @@ resource "aws_lb_target_group" "aws-load-balancer" {
   name     = "aws-load-balancer-${terraform.workspace}"
   port     = 80
   protocol = "HTTP"
+  vpc_id = var.vpc_id 
 }
 
 resource "aws_launch_configuration" "launch-configuration" {
