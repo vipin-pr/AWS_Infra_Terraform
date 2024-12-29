@@ -29,8 +29,8 @@ resource "aws_security_group" "load-balancer-sg" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    security_groups = [ aws_security_group.ec2-sg.id ]
   }
 
 }
@@ -60,4 +60,12 @@ resource "aws_autoscaling_group" "ec2-as-group" {
   max_size             = 5
   desired_capacity     = 2
   launch_configuration = aws_launch_configuration.launch-configuration.name
+}
+
+resource "aws_lb" "load-balancer" {
+  name               = "load-balancer-${terraform.workspace}"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.load-balancer-sg.id]
+  subnets            = module.vpc.public_subnets
 }

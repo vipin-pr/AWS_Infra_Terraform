@@ -66,6 +66,11 @@ resource "aws_route_table" "private_route_table" {
     gateway_id = "local"
   }
 
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_nat_gateway.nat_gateway.id
+  }
+
   tags = {
     Name = "private-subnet-route-table-${terraform.workspace}"
   }
@@ -85,12 +90,14 @@ resource "aws_route_table_association" "public_route_table_association" {
 
 resource "aws_nat_gateway" "nat_gateway" {
   subnet_id = aws_subnet.public_subnet.id
+  connectivity_type = "public"
+
+  depends_on = [aws_internet_gateway.gateway]
 
   tags = {
     Name = "NAT-gateway-${terraform.workspace}"
   }
 
-  depends_on = [aws_internet_gateway.gateway]
 }
 
 

@@ -9,3 +9,7 @@ variable "vpc_id" {
 variable "vpc_zone_identifier" {
   description = "vpc_zone_identifier for autoscaling group"
 }
+
+variable "public_subnet" {
+ description = "public subnet from vpc module" 
+}

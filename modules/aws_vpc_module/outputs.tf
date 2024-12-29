@@ -9,3 +9,7 @@ output "vpc_id" {
 output "vpc_zone_identifier_id" {
   value = [aws_subnet.public_subnet]
 }
+
+output "public_subnet" {
+ value = aws_subnet.public_subnet 
+}
