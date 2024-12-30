@@ -30,7 +30,7 @@ resource "aws_security_group" "load-balancer-sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "tcp"
-    security_groups = [ aws_security_group.ec2-sg.id ]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
 }
@@ -67,5 +67,5 @@ resource "aws_lb" "load-balancer" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load-balancer-sg.id]
-  subnets            = module.vpc.public_subnets
+  subnets            = var.public_subnet 
 }
