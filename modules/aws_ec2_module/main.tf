@@ -80,3 +80,9 @@ resource "aws_lb_listener" "terramino" {
     target_group_arn = aws_lb_target_group.aws-load-balancer-target-group.arn
   }
 }
+
+resource "aws_autoscaling_attachment" "aws_as_attachment" {
+  autoscaling_group_name = aws_autoscaling_group.ec2-as-group.id
+  lb_target_group_arn   = aws_lb_target_group.aws-load-balancer-target-group.id
+}
+
