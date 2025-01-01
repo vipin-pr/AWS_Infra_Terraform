@@ -40,7 +40,7 @@ resource "aws_lb_target_group" "aws-load-balancer-target-group" {
   name     = "aws-load-balancer-tg-${terraform.workspace}"
   port     = 80
   protocol = "HTTP"
-  vpc_id = module.vpc.vpc_id
+  vpc_id   = var.vpc_id
 }
 
 resource "aws_launch_configuration" "launch-configuration" {
@@ -67,7 +67,7 @@ resource "aws_lb" "load-balancer" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load-balancer-sg.id]
-  subnets            = var.public_subnet 
+  subnets            = var.public_subnet
 }
 
 resource "aws_lb_listener" "terramino" {
@@ -83,6 +83,6 @@ resource "aws_lb_listener" "terramino" {
 
 resource "aws_autoscaling_attachment" "aws_as_attachment" {
   autoscaling_group_name = aws_autoscaling_group.ec2-as-group.id
-  lb_target_group_arn   = aws_lb_target_group.aws-load-balancer-target-group.id
+  lb_target_group_arn    = aws_lb_target_group.aws-load-balancer-target-group.id
 }
 

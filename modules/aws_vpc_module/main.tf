@@ -89,7 +89,7 @@ resource "aws_route_table_association" "public_route_table_association" {
 }
 
 resource "aws_nat_gateway" "nat_gateway" {
-  subnet_id = aws_subnet.public_subnet.id
+  subnet_id         = aws_subnet.public_subnet.id
   connectivity_type = "public"
 
   depends_on = [aws_internet_gateway.gateway]

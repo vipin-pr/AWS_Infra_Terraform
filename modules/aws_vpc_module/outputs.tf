@@ -11,5 +11,5 @@ output "vpc_zone_identifier_id" {
 }
 
 output "public_subnet" {
- value = [aws_subnet.public_subnet.id]
+  value = [aws_subnet.public_subnet.id]
 }
