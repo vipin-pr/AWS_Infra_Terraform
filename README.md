@@ -48,8 +48,7 @@ Hereâ€™s an advanced Terraform practice task to help you use most of Terraformâ€
 10. **Conditional Logic**:
     - Use conditional expressions to enable logging for the S3 bucket only in the `prod` environment.
 
-11. **Provisioning**:
-    - Use a provisioner to execute a script on EC2 instances to configure the application.
+
 
 ---
 
