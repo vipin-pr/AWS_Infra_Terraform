@@ -34,4 +34,6 @@ resource "aws_autoscaling_group" "autoscaling_group" {
     id      = aws_launch_template.launch_template.id
     version = "$Latest"
   }
+
+  target_group_arns = [aws_lb_target_group.aws-load-balancer-target-group.arn]
 }

@@ -32,3 +32,12 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
+resource "aws_subnet" "public_subnet_2" {
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = var.public_subnet_cidr_block_2
+  # availability_zone[1] = us-east-1c
+  availability_zone = var.availability_zone[2]
+  tags = {
+    Name = "public-subnet-2-${terraform.workspace}"
+  }
+}
