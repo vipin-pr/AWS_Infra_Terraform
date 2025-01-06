@@ -8,7 +8,7 @@ resource "aws_lb" "load-balancer" {
 
 resource "aws_lb_target_group" "aws-load-balancer-target-group" {
   name     = "aws-load-balancer-tg-${terraform.workspace}"
-  port     = 79
+  port     = 80 
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 }
