@@ -1,5 +1,5 @@
-variable "ubuntu-ami" {
-  default = "ami-0e2c8caa4b6378d8c"
+variable "amazon_linux_ami" {
+  default = "ami-01816d07b1128cd2d"
 }
 
 variable "vpc_id" {
@@ -14,4 +14,8 @@ variable "vpc_zone_identifier" {
 
 variable "public_subnet" {
   description = "public subnet from vpc module"
+}
+
+variable "availability_zone" {
+  type = list(string)
 }
