@@ -14,6 +14,6 @@ output "public_subnet" {
   value = [aws_subnet.public_subnet.id]
 }
 
-output "availability_zones" {
+output "availability_zone" {
   value = var.availability_zone
 }
