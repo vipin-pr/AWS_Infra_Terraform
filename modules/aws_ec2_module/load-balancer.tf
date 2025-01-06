@@ -13,7 +13,7 @@ resource "aws_lb_target_group" "aws-load-balancer-target-group" {
   vpc_id   = var.vpc_id
 }
 
-resource "aws_lb_listener" "terramino" {
+resource "aws_lb_listener" "aws_lb_listener" {
   load_balancer_arn = aws_lb.load-balancer.arn
   port              = "80"
   protocol          = "HTTP"
