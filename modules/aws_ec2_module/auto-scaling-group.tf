@@ -3,14 +3,14 @@ resource "aws_launch_template" "launch_template" {
   name_prefix     = "launch-template-${terraform.workspace}"
   image_id        = var.amazon_linux_ami
   instance_type   = "t2.micro"
-  # vpc_security_group_ids = [aws_security_group.ec2-sg.id]
+  vpc_security_group_ids = [aws_security_group.ec2-sg.id]
 
   network_interfaces {
     associate_public_ip_address = false
-    security_groups = [aws_security_group.ec2-sg.id]
+    # security_groups = [aws_security_group.ec2-sg.id]
   }
 
-  user_data = file("${path.module}/user-data.sh")
+  user_data = filebase64("${path.module}/user-data.sh")
 
   tag_specifications {
     resource_type = "instance"

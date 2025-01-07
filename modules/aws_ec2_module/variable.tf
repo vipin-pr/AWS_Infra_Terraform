@@ -16,6 +16,10 @@ variable "public_subnet" {
   description = "public subnet from vpc module"
 }
 
+variable "public_subnet_2" {
+ description = "public subnet_2 from vpc module" 
+}
+
 variable "availability_zone" {
   type = list(string)
 }

@@ -1,5 +1,6 @@
 resource "aws_security_group" "ec2-sg" {
   name = "ec2-sg-${terraform.workspace}"
+  vpc_id = var.vpc_id
   ingress {
     from_port       = 80
     to_port         = 80
@@ -18,6 +19,7 @@ resource "aws_security_group" "ec2-sg" {
 
 resource "aws_security_group" "load-balancer-sg" {
   name = "load-balancer-security-group-${terraform.workspace}"
+  vpc_id = var.vpc_id
   ingress {
     from_port   = 80
     to_port     = 80
