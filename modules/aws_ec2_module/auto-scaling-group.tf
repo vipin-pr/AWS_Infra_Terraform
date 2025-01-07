@@ -5,10 +5,10 @@ resource "aws_launch_template" "launch_template" {
   instance_type   = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
 
-  network_interfaces {
-    associate_public_ip_address = false
-    # security_groups = [aws_security_group.ec2-sg.id]
-  }
+  # network_interfaces {
+  #   associate_public_ip_address = false
+  #   security_groups = [aws_security_group.ec2-sg.id]
+  # }
 
   user_data = filebase64("${path.module}/user-data.sh")
 

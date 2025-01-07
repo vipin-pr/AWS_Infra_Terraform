@@ -27,3 +27,6 @@ module "ec2" {
   gateway             = module.vpc.gateway
 }
 
+output "dns_name_lb" {
+ value = module.ec2.dns_name_lb 
+}
