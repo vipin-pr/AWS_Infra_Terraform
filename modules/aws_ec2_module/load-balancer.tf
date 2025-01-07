@@ -4,6 +4,7 @@ resource "aws_lb" "load-balancer" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load-balancer-sg.id]
   subnets            = var.public_subnet
+  depends_on = [  ]
 }
 
 resource "aws_lb_target_group" "aws-load-balancer-target-group" {

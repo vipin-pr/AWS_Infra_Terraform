@@ -15,9 +15,12 @@ resource "aws_nat_gateway" "nat_gateway_pubic" {
   }
   depends_on = [aws_internet_gateway.gateway]
 }
+
+
 # EIP for NAT Gateway in AZ A
 resource "aws_eip" "eip" {
   domain   = "vpc"
+  depends_on = [ aws_internet_gateway.gateway ]
   tags = {
     Name = "eip-${terraform.workspace}"
   }

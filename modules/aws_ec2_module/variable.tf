@@ -19,3 +19,7 @@ variable "public_subnet" {
 variable "availability_zone" {
   type = list(string)
 }
+
+variable "gateway" {
+ description = "internet gateway resource" 
+}

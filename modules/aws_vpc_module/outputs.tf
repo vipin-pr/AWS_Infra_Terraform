@@ -7,7 +7,7 @@ output "vpc_id" {
 # Output for vpc_zone_identifiers
 
 output "vpc_zone_identifier_id" {
-  value = [aws_subnet.public_subnet]
+  value = [aws_subnet.private_subnet.id]
 }
 
 output "public_subnet" {
@@ -16,4 +16,8 @@ output "public_subnet" {
 
 output "availability_zone" {
   value = var.availability_zone
+}
+
+output "gateway" {
+ value = [aws_internet_gateway.gateway] 
 }

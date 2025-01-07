@@ -23,5 +23,6 @@ module "ec2" {
   vpc_zone_identifier = module.vpc.vpc_zone_identifier_id
   public_subnet       = module.vpc.public_subnet
   availability_zone   = module.vpc.availability_zone
+  gateway             = module.vpc.gateway
 }
 
