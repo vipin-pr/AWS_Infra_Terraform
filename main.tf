@@ -30,3 +30,7 @@ module "ec2" {
 output "dns_name_lb" {
  value = module.ec2.dns_name_lb 
 }
+
+output "bastion-host-ip" {
+  value = module.ec2.bastion-host-ip
+}
