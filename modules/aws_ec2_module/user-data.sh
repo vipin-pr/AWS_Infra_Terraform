@@ -4,7 +4,7 @@
 sleep 30
 
 sudo yum update -y
-
+sudo yum install git -y
 git clone https://github.com/Sam-Meech-Ward/cocktails.git
 
 sudo yum install npm -y
