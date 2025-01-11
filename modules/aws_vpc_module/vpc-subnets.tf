@@ -26,7 +26,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.public_subnet_cidr_block
   # availability_zone[1] = us-east-1b
-  availability_zone = var.availability_zone[1]
+  availability_zone = var.availability_zone[0]
   tags = {
     Name = "public-subnet-${terraform.workspace}"
   }
@@ -36,7 +36,7 @@ resource "aws_subnet" "public_subnet_2" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.public_subnet_cidr_block_2
   # availability_zone[1] = us-east-1c
-  availability_zone = var.availability_zone[2]
+  availability_zone = var.availability_zone[1]
   tags = {
     Name = "public-subnet-2-${terraform.workspace}"
   }

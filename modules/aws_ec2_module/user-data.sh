@@ -1,4 +1,3 @@
-# user-data script
 
 #!/bin/bash
 sleep 30
@@ -14,7 +13,7 @@ sudo yum install -y nodejs
 
 cd ~/cocktails && npm i --only=prod
 
-cat << EOF > /etc/systemd/system/cocktails.service
+cat << EOF | sudo tee /etc/systemd/system/cocktails.service
 [Unit]
 Description=Cocktails App
 After=cloud-final.service
@@ -33,6 +32,7 @@ User=ec2-user
 WantedBy=multi-user.target
 WantedBy=cloud-init.target
 EOF
+
 
 
 sudo systemctl enable cocktails.service

@@ -6,6 +6,10 @@ resource "aws_launch_template" "launch_template" {
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
   key_name = "cocktails"
   user_data = filebase64("${path.module}/user-data.sh")
+
+  placement {
+  availability_zone =  var.availability_zone[0]
+  }
     
   tag_specifications {
     resource_type = "instance"
