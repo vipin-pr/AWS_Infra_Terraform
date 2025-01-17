@@ -1,6 +1,7 @@
 resource "aws_security_group" "ec2-sg" {
   name = "ec2-sg-${terraform.workspace}"
   vpc_id = var.vpc_id
+
   ingress {
     from_port       = 8080
     to_port         = 8080
